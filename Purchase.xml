@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="methods" name="Suite">
+<groups>
+  	<run>
+  		<include name="PurchaseOrder"/>
+  	</run>
+  </groups>
+  <!--LEC 170` there are pre-requisite methods which are annoted as @beforeMethod and @afterMethod
+  use (alwaysRun=true) with these two pre-req annotation to ensue these can run with groups or not groups or with any condition
+ 	else you have to mention explicitely  @beforeMethod (groups={"Error Handling"}) like this. and it run only for this condition not others.
+	-->
+  <test thread-count="5" name="ErrorValidationTest">
+    <classes>
+      <class name="VaibhavFrameWorkDesign.SeleniumFrameworkMyVersionTests.ErrorValidationsTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test thread-count="5" name="SubmitOrderTest">
+    <classes>
+      <class name="VaibhavFrameWorkDesign.SeleniumFrameworkMyVersionTests.StandAloneTestPOM"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+<!-- • Lec 170	If you want to Run tests parallel then just mention parallel = tests at suite level.
+			<suite Parallel = “tests” name="Suite">
+	 •	if you want to run methods/Test  of  the same Class file parallelly.
+		<suite Parallel = “methods” name="Suite">-->
